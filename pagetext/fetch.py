@@ -12,6 +12,11 @@ USER_AGENT = "pagetext/0.1 (+devfest-abeokuta)"
 
 
 def fetch(url, timeout=10):
+    """Return the decoded body of url, using the charset the server declares.
+
+    Falls back to UTF-8 when no charset is sent, and replaces bytes that cannot
+    be decoded instead of raising.
+    """
     request = Request(url, headers={"User-Agent": USER_AGENT})
     with urlopen(request, timeout=timeout) as response:
         raw = response.read()
