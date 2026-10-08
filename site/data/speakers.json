@@ -1,6 +1,37 @@
 [
-  { "id": "amara", "name": "Amara Okafor", "role": "Cloud Engineer", "topic": "Shipping agents to production", "color": "#4285f4" },
-  { "id": "daniel", "name": "Daniel Mensah", "role": "Android Developer", "topic": "Jetpack Compose in the real world", "color": "#ea4335" },
-  { "id": "sofia", "name": "Sofia Alvarez", "role": "Data Engineer", "topic": "BigQuery tricks nobody told you", "color": "#fbbc04" },
-  { "id": "kenji", "name": "Kenji Watanabe", "role": "Web Developer", "topic": "Fast sites with less JavaScript", "color": "#34a853" }
+  {
+    "id": "amara",
+    "name": "Amara Okafor",
+    "role": "Cloud Engineer",
+    "topic": "Shipping agents to production",
+    "color": "#4285f4"
+  },
+  {
+    "id": "daniel",
+    "name": "Daniel Mensah",
+    "role": "Android Developer",
+    "topic": "Jetpack Compose in the real world",
+    "color": "#ea4335"
+  },
+  {
+    "id": "sofia",
+    "name": "Sofia Alvarez",
+    "role": "Data Engineer",
+    "topic": "BigQuery tricks nobody told you",
+    "color": "#fbbc04"
+  },
+  {
+    "id": "kenji",
+    "name": "Kenji Watanabe",
+    "role": "Web Developer",
+    "topic": "Fast sites with less JavaScript",
+    "color": "#34a853"
+  },
+  {
+    "name": "Chidi Eze",
+    "role": "Staff Machine Learning Engineer",
+    "topic": "Evaluating AI agents before they reach users",
+    "id": "chidi",
+    "color": "#4285f4"
+  }
 ]
