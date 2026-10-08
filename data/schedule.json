@@ -1,0 +1,8 @@
+[
+  { "day": 1, "time": "09:00", "end": "09:30", "title": "Registration and coffee", "speaker": null, "room": "Lobby" },
+  { "day": 1, "time": "09:30", "end": "10:15", "title": "Opening keynote: building with agents", "speaker": "amara", "room": "Main hall" },
+  { "day": 1, "time": "10:30", "end": "11:15", "title": "Jetpack Compose in the real world", "speaker": "daniel", "room": "Main hall" },
+  { "day": 1, "time": "11:00", "end": "11:45", "title": "BigQuery tricks nobody told you", "speaker": "sofia", "room": "Main hall" },
+  { "day": 1, "time": "12:00", "end": "13:00", "title": "Lunch and networking", "speaker": null, "room": "Lobby" },
+  { "day": 1, "time": "13:00", "end": "13:45", "title": "Fast sites with less JavaScript", "speaker": "kenji", "room": "Main hall" }
+]
