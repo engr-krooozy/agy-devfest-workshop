@@ -90,7 +90,8 @@ While it runs type `/agents`. Expected: **3 spots that ignore `event.json`**:
 | `site/app.js` | the footer text |
 | `serve.py` | the startup banner |
 
-`Enter` on a running one to read its reasoning. `ctrl+k` approves inline. Also: `/tasks`.
+The search runs shell commands (grep), so **approval cards appear**: `y` or `ctrl+k` to approve each.
+That is slide 26 happening live. `Enter` on a running subagent to read its reasoning. Also: `/tasks`.
 Set up the payoff: "we fix all three at the end".
 
 ## Slide 19: Gears (no live run)
@@ -113,7 +114,10 @@ cat demo/new-speaker-bio.txt
 agy -p "Extract the speaker from this bio: $(cat demo/new-speaker-bio.txt)" \
   --output-format json --json-schema demo/speaker.schema.json | jq '.structured_output'
 ```
-Expected: `{ "name": "Chidi Eze", "role": "...", "topic": "..." }`. Now put it on the page:
+Expected (tested):
+```json
+{ "name": "Chidi Eze", "role": "Staff Machine Learning Engineer", "topic": "Evaluating AI agents before they reach users" }
+``` Now put it on the page:
 ```bash
 agy -p "Extract the speaker from this bio: $(cat demo/new-speaker-bio.txt)" \
   --output-format json --json-schema demo/speaker.schema.json \
@@ -134,6 +138,7 @@ In the TUI: `Ctrl+D`, then `agy`. Type `/` and show **/standup** in the list. Ru
 ```
 /standup
 ```
+It reads the git log, so an **approval card for a git command appears**: approve it.
 Also: `agy plugin list` and `/hooks`. Browser: no change. This one lives in the terminal.
 
 ## Slide 26: Permissions (read only)
@@ -148,8 +153,11 @@ When the approval card appears, **edit the target** to widen it, then approve. R
 
 ## Slide 27: Sandbox (second terminal tab)
 ```bash
-agy --sandbox -p "list the files in this directory"
+agy --sandbox -p "Read AGENTS.md and tell me, in one line, what the test command is"
 ```
+Expected: `python3 -m unittest discover -s tests -v`. Reading files is allowed by default, so it runs
+under containment with no prompt. (Headless mode cannot ask for approval, so a prompt that needs a
+shell command is auto-denied. Keep this one to file reads.)
 
 ## Slide 28: Verification loop (step-28-two-days)
 ```
