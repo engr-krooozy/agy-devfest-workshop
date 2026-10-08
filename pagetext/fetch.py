@@ -4,6 +4,8 @@
 """
 
 import sys
+import time
+from urllib.error import URLError
 from urllib.request import Request, urlopen
 
 from .extract import extract_text
@@ -11,17 +13,24 @@ from .extract import extract_text
 USER_AGENT = "pagetext/0.1 (+devfest-abeokuta)"
 
 
-def fetch(url, timeout=10):
+def fetch(url, timeout=10, retries=3, backoff=0.5, sleep=time.sleep):
     """Return the decoded body of url, using the charset the server declares.
 
     Falls back to UTF-8 when no charset is sent, and replaces bytes that cannot
-    be decoded instead of raising.
+    be decoded instead of raising. Network errors are retried up to `retries`
+    times, waiting backoff, 2*backoff, 4*backoff... seconds between attempts.
     """
     request = Request(url, headers={"User-Agent": USER_AGENT})
-    with urlopen(request, timeout=timeout) as response:
-        raw = response.read()
-        charset = response.headers.get_content_charset() or "utf-8"
-    return raw.decode(charset, errors="replace")
+    for attempt in range(retries + 1):
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                raw = response.read()
+                charset = response.headers.get_content_charset() or "utf-8"
+            return raw.decode(charset, errors="replace")
+        except URLError:
+            if attempt == retries:
+                raise
+            sleep(backoff * (2 ** attempt))
 
 
 def main(argv=None):

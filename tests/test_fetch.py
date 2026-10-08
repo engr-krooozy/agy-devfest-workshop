@@ -1,5 +1,6 @@
 import unittest
 from unittest import mock
+from urllib.error import URLError
 
 from pagetext import fetch as fetch_module
 
@@ -43,6 +44,22 @@ class FetchTests(unittest.TestCase):
         request = opened.call_args.args[0]
         self.assertEqual(request.get_header("User-agent"), fetch_module.USER_AGENT)
         self.assertEqual(opened.call_args.kwargs["timeout"], 7)
+
+    def test_retries_then_succeeds(self):
+        good = FakeResponse(b"finally")
+        sleeps = []
+        with mock.patch.object(fetch_module, "urlopen", side_effect=[URLError("down"), URLError("down"), good]):
+            body = fetch_module.fetch("http://x.test/", backoff=1, sleep=sleeps.append)
+        self.assertEqual(body, "finally")
+        self.assertEqual(sleeps, [1, 2])
+
+    def test_gives_up_after_retries(self):
+        sleeps = []
+        with mock.patch.object(fetch_module, "urlopen", side_effect=URLError("down")) as opened:
+            with self.assertRaises(URLError):
+                fetch_module.fetch("http://x.test/", retries=2, sleep=sleeps.append)
+        self.assertEqual(opened.call_count, 3)
+        self.assertEqual(len(sleeps), 2)
 
 
 if __name__ == "__main__":
