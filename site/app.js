@@ -116,7 +116,25 @@ function renderFooter() {
   $("#footer").textContent = "© 2026 DevFest Your City · Built live with Antigravity CLI";
 }
 
+function initTheme() {
+  const root = document.documentElement;
+  const button = $("#theme-toggle");
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const apply = (theme) => {
+    root.dataset.theme = theme;
+    button.textContent = theme === "dark" ? "☀️" : "🌙";
+  };
+  apply(saved || (prefersDark ? "dark" : "light"));
+  button.addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    apply(next);
+  });
+}
+
 async function main() {
+  initTheme();
   const [event, speakers, schedule] = await Promise.all([load("event"), load("speakers"), load("schedule")]);
   renderHero(event);
   renderCountdown(event);

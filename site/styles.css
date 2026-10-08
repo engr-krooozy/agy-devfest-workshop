@@ -12,6 +12,15 @@
   --shadow: 0 6px 24px rgba(30, 30, 60, 0.08);
 }
 
+:root[data-theme="dark"] {
+  --bg: #12141a;
+  --surface: #1c1f27;
+  --text: #f1f3f8;
+  --muted: #a3a9b8;
+  --border: #2d313c;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -43,6 +52,17 @@ body {
 .topbar nav { display: flex; gap: 20px; align-items: center; }
 .topbar a { color: var(--muted); text-decoration: none; font-weight: 500; }
 .topbar a:hover { color: var(--accent); }
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--accent); }
 
 .hero {
   text-align: center;

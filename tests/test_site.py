@@ -18,6 +18,12 @@ class SiteFilesTests(unittest.TestCase):
         for element_id in ("speaker-grid", "timeline", "countdown", "footer"):
             self.assertIn(f'id="{element_id}"', html)
 
+    def test_dark_mode_toggle_exists_and_is_styled(self):
+        with open(os.path.join(SITE, "index.html"), encoding="utf-8") as handle:
+            self.assertIn('id="theme-toggle"', handle.read())
+        with open(os.path.join(SITE, "styles.css"), encoding="utf-8") as handle:
+            self.assertIn('[data-theme="dark"]', handle.read())
+
 
 if __name__ == "__main__":
     unittest.main()
