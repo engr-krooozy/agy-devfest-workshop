@@ -10,6 +10,22 @@ window: `make follow`. Terminal font 18pt+. Run `/clear` in `agy`.
 
 ---
 
+## Rehearsal status (agy 1.3.1)
+
+| Slide | Tested | Result |
+|---|---|---|
+| 10, 23, 24, 27 | yes | worked as written |
+| 14 dark mode | yes | same four files as `step-14-dark-mode`, tests green |
+| 28 second day | yes | six Day 2 sessions added, tests ran and passed |
+| 29 fix the clash | yes | same one-talk move as `step-29a-fix-clash`, `make bugs` green |
+| 29 single source | yes | title, footer and server banner read `event.json`, new test added |
+| 18, 25 | partly | need shell commands, so **approval cards appear**. Approve them |
+| 13, 15, 16, 19, 26 | no | interactive TUI features, rehearse once |
+
+The agent's wording and exact file edits vary between runs. The visible result in the browser should not.
+
+---
+
 ## Slide 5: One agent core
 ```
 /settings
