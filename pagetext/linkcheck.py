@@ -1,7 +1,8 @@
 """Check that a list of URLs still resolve."""
 
 from urllib.error import HTTPError
-from urllib.request import Request, urlopen
+
+from .fetch import http_request
 
 LINKCHECK_AGENT = "pagetext-linkcheck/0.1 (+devfest)"
 LINKCHECK_TIMEOUT = 3
@@ -9,9 +10,8 @@ LINKCHECK_TIMEOUT = 3
 
 def check_link(url):
     """Return the HTTP status for url, or 0 if it cannot be reached."""
-    request = Request(url, method="HEAD", headers={"User-Agent": LINKCHECK_AGENT})
     try:
-        with urlopen(request, timeout=LINKCHECK_TIMEOUT) as response:
+        with http_request(url, method="HEAD", timeout=LINKCHECK_TIMEOUT, user_agent=LINKCHECK_AGENT) as response:
             return response.status
     except HTTPError as error:
         return error.code
@@ -20,4 +20,5 @@ def check_link(url):
 
 
 def check_links(urls):
+    """Return {url: status} for every url."""
     return {url: check_link(url) for url in urls}

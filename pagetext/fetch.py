@@ -13,6 +13,12 @@ from .extract import extract_text
 USER_AGENT = "pagetext/0.1 (+devfest-abeokuta)"
 
 
+def http_request(url, method="GET", timeout=10, user_agent=USER_AGENT):
+    """Open url and return the response. The one place HTTP calls are made."""
+    request = Request(url, method=method, headers={"User-Agent": user_agent})
+    return urlopen(request, timeout=timeout)
+
+
 def fetch(url, timeout=10, retries=3, backoff=0.5, sleep=time.sleep):
     """Return the decoded body of url, using the charset the server declares.
 
@@ -20,10 +26,9 @@ def fetch(url, timeout=10, retries=3, backoff=0.5, sleep=time.sleep):
     be decoded instead of raising. Network errors are retried up to `retries`
     times, waiting backoff, 2*backoff, 4*backoff... seconds between attempts.
     """
-    request = Request(url, headers={"User-Agent": USER_AGENT})
     for attempt in range(retries + 1):
         try:
-            with urlopen(request, timeout=timeout) as response:
+            with http_request(url, timeout=timeout) as response:
                 raw = response.read()
                 charset = response.headers.get_content_charset() or "utf-8"
             return raw.decode(charset, errors="replace")
