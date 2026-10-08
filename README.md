@@ -60,32 +60,32 @@ Each row is one thing the agent does. **You can see every one in the browser.**
 
 | Slide | You ask the agent | What you see in the browser | Replay it |
 |---|---|---|---|
-| 13 | *Add a dark mode toggle* (in **plan** mode) | **Nothing.** Plan mode never writes | none |
-| 14 | *Add a dark mode toggle to the header* | A 🌙 button appears. Click it and the whole site goes dark | `step-14-dark-mode` |
-| 15 | `/fork`, change the accent colour, `/resume` | The page turns red and **stays red**. A fork copies the chat, not your files | none |
-| 18 | *Find everything hard-coded to the event* | Nothing. It finds 3 spots that ignore `event.json` | none |
-| 24 | `agy -p` turns a bio into a speaker | A **5th speaker card** pops in | `step-24-new-speaker` |
-| 25 | Install the `/standup` skill | Nothing on the page. A new slash command appears | `step-25-standup-skill` |
-| 28 | *Add a second conference day, run the tests* | **Day 1 / Day 2 tabs** appear | `step-28-two-days` |
-| 29 | *Fix the failing test* | The red **⚠ Clash** badges vanish | `step-29a-fix-clash` |
-| 29 | *Make everything read from event.json* | Tab title, footer and server banner now follow your city | `step-29b-single-source` |
+| 14 | *Add a dark mode toggle* (in **plan** mode) | **Nothing.** Plan mode never writes | none |
+| 15 | *Add a dark mode toggle to the header* | A 🌙 button appears. Click it and the whole site goes dark | `step-1-dark-mode` |
+| 17 | `/fork`, change the accent colour, `/resume` | The page turns red and **stays red**. A fork copies the chat, not your files | none |
+| 20 | *Find everything hard-coded to the event* | Nothing. It finds 3 spots that ignore `event.json` | none |
+| 26 | `agy -p` turns a bio into a speaker | A **5th speaker card** pops in | `step-2-new-speaker` |
+| 28 | Install the `/standup` skill | Nothing on the page. A new slash command appears | `step-3-standup-skill` |
+| 31 | *Add a second conference day, run the tests* | **Day 1 / Day 2 tabs** appear | `step-4-two-days` |
+| 33 | *Fix the failing test* | The red **⚠ Clash** badges vanish | `step-5a-fix-clash` |
+| 33 | *Make everything read from event.json* | Tab title, footer and server banner now follow your city | `step-5b-single-source` |
 
 ### Before and after
 
 | Dark mode (step 14) | New speaker (step 24) |
 |---|---|
-| <img src="docs/screens/step-14-dark-mode.png" width="440"> | <img src="docs/screens/step-24-new-speaker.png" width="440"> |
+| <img src="docs/screens/step-1-dark-mode.png" width="440"> | <img src="docs/screens/step-2-new-speaker.png" width="440"> |
 
 | Two days (step 28) | Clash fixed (step 29) |
 |---|---|
-| <img src="docs/screens/step-28-two-days.png" width="440"> | <img src="docs/screens/step-29-fixed.png" width="440"> |
+| <img src="docs/screens/step-4-two-days.png" width="440"> | <img src="docs/screens/step-29-fixed.png" width="440"> |
 
 ## Three ways to follow
 
 | You want to... | Do this |
 |---|---|
-| **Watch** | Look at the screen. Run `./scripts/step.sh 14` to see the exact diff of a step |
-| **Skip ahead** | `git checkout step-14-dark-mode` and the site becomes that step. `make reset` goes back |
+| **Watch** | Look at the screen. Run `./scripts/step.sh 1` to see the exact diff of a step |
+| **Skip ahead** | `git checkout step-1-dark-mode` and the site becomes that step. `make reset` goes back |
 | **Do it yourself** | `git checkout demo-start`, open `agy`, paste the prompts from [DEMO.md](DEMO.md) |
 
 ## What is in the repo
