@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "role": { "type": "string" },
+    "topic": { "type": "string" }
+  },
+  "required": ["name", "role", "topic"],
+  "additionalProperties": false
+}

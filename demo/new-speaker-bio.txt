@@ -1,0 +1,1 @@
+Chidi Eze is a Staff Machine Learning Engineer who has spent six years putting models into production on Google Cloud. At DevFest he will show how to evaluate AI agents before they reach users.

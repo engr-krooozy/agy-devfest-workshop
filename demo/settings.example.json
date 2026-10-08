@@ -1,0 +1,6 @@
+{
+  "_comment": "EXAMPLE ONLY, shown on the Permissions slide. Do not paste over your real settings.json.",
+  "allow": ["command(git)"],
+  "deny": ["command(rm -rf)", "command(sudo)"],
+  "ask": ["command(*)"]
+}
