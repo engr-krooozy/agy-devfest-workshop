@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "major": { "type": "integer" },
+    "minor": { "type": "integer" },
+    "patch": { "type": "integer" }
+  },
+  "required": ["major", "minor", "patch"],
+  "additionalProperties": false
+}
