@@ -160,7 +160,7 @@ Skip ahead: `git checkout step-28-retry-backoff`
 ## Slide 29: Open floor
 Stay in default mode. Hand on `Esc`. Pick what the room picks:
 
-**A failing test** (step-29-fix-script-style-bug)
+**A failing test** (step-29a-fix-script-style-bug)
 ```bash
 python -m unittest discover -s bugs -v
 ```
@@ -175,7 +175,7 @@ Expected: `extract.py` now skips `<script>` and `<style>`. `bugs/` goes green.
 ```
 Then `ctrl+r` and `m` to render the diagram in the terminal.
 
-**A refactor you avoid** (step-29-consolidate-http). Switch to plan mode first:
+**A refactor you avoid** (step-29b-consolidate-http). Switch to plan mode first:
 ```
 Consolidate the HTTP code in robots.py and linkcheck.py into fetch.py
 ```
@@ -191,4 +191,4 @@ make serve                       # terminal 1
 python3 -m pagetext.fetch http://localhost:8000/index.html
 ```
 Expected before the bug fix: the page text **includes** the `tracker` script line and the CSS.
-After `step-29-fix-script-style-bug`: only the readable text.
+After `step-29a-fix-script-style-bug`: only the readable text.

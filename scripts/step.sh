@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
   git tag --list 'step-*' --sort=version:refname | while read -r t; do
     printf '  %-34s %s\n' "$t" "$(git log -1 --format=%s "$t")"
   done
-  echo; echo "Usage: ./scripts/step.sh 14      (show the diff for step 14)"
+  echo; echo "Usage: ./scripts/step.sh 14      (show the diff for step 14; 29a and 29b for the open floor)"
   exit 0
 fi
 tag=$(git tag --list "step-$1-*" | head -n1)

@@ -99,8 +99,8 @@ it up on slide 29.
 | 25 | Skills | `demo/standup.md` is copied into `.agents/skills/` | `step-25-standup-skill` |
 | 26 to 27 | Guardrails | Nothing. We read permissions and run sandboxed | none |
 | 28 | Verification loop | Retry with backoff in `fetch()`, tests run by the agent | `step-28-retry-backoff` |
-| 29 | Open floor | Fix the `bugs/` tests | `step-29-fix-script-style-bug` |
-| 29 | Open floor | Consolidate HTTP code into `fetch.py` | `step-29-consolidate-http` |
+| 29 | Open floor | Fix the `bugs/` tests | `step-29a-fix-script-style-bug` |
+| 29 | Open floor | Consolidate HTTP code into `fetch.py` | `step-29b-consolidate-http` |
 
 > **Reading a diff is the skill.** After every step, run `git diff` (or `./scripts/follow.sh`).
 > The agent writes code, you review it.
