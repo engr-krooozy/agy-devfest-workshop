@@ -8,10 +8,12 @@
   └─────────────────────────────────────────────┘
 ```
 
-# agy-devfest
+# agy-devfest-workshop
 
 **The follow-along repo for the Antigravity CLI workshop.**
 Watch the agent change real code, then replay every change yourself.
+
+**https://github.com/engr-krooozy/agy-devfest-workshop**
 
 `Python 3.9+` · `standard library only` · `no network needed for tests` · `no API keys`
 
@@ -46,7 +48,8 @@ flowchart LR
 | **Do it yourself** with `agy` | `git checkout demo-start`, open `agy`, paste the prompts from [DEMO.md](DEMO.md) |
 
 ```bash
-git clone <this repo> && cd agy-devfest
+git clone https://github.com/engr-krooozy/agy-devfest-workshop.git
+cd agy-devfest-workshop
 make preflight        # every line should say OK
 make steps            # list every workshop step
 ```
@@ -63,7 +66,7 @@ make bugs                                    # 2 tests, RED on purpose. That is 
 ## Repo map
 
 ```
-agy-devfest/
+agy-devfest-workshop/
 ├── pagetext/
 │   ├── fetch.py        fetch a URL, print its text         (UA: pagetext, timeout 10s)
 │   ├── extract.py      HTML to plain text

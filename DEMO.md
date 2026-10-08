@@ -23,7 +23,7 @@ agy --version
 
 ## Slide 10: First launch, first prompt
 ```bash
-cd agy-devfest && agy
+cd agy-devfest-workshop && agy
 ```
 Point at the status bar: **1 skill, explain-flow**. Then send:
 ```
