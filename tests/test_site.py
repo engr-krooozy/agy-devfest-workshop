@@ -24,6 +24,12 @@ class SiteFilesTests(unittest.TestCase):
         with open(os.path.join(SITE, "styles.css"), encoding="utf-8") as handle:
             self.assertIn('[data-theme="dark"]', handle.read())
 
+    def test_event_name_and_city_are_not_hard_coded(self):
+        root = os.path.join(SITE, "..")
+        for path in ("site/index.html", "site/app.js", "serve.py"):
+            with open(os.path.join(root, path), encoding="utf-8") as handle:
+                self.assertNotIn("Your City", handle.read(), f"{path} hard-codes the city")
+
 
 if __name__ == "__main__":
     unittest.main()

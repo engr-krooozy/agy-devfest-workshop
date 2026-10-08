@@ -8,11 +8,18 @@ so you see the agent's edits appear in the browser the moment they are saved.
 """
 
 import http.server
+import json
 import os
 import socketserver
 import sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
+
+
+def event_title():
+    with open(os.path.join(ROOT, "data", "event.json"), encoding="utf-8") as handle:
+        event = json.load(handle)
+    return f"{event['name']} {event['city']} {event['year']}"
 
 
 def latest_mtime():
@@ -50,7 +57,7 @@ def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
     socketserver.ThreadingTCPServer.allow_reuse_address = True
     with socketserver.ThreadingTCPServer(("", port), Handler) as server:
-        print("DevFest Your City dev server")
+        print(f"{event_title()} dev server")
         print(f"  open  http://localhost:{port}")
         print("  edit any file under site/ and the page reloads itself. Ctrl+C to stop.")
         try:

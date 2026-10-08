@@ -25,6 +25,8 @@ function renderHero(event) {
   title.textContent = `${event.name} `;
   title.append(el("span", "", event.city));
   $("#hero-tagline").textContent = event.tagline;
+  document.title = `${event.name} ${event.city} ${event.year}`;
+  document.querySelector('meta[name="description"]').content = `${event.name} ${event.city} ${event.year}: ${event.tagline}`;
 }
 
 function renderCountdown(event) {
@@ -112,8 +114,8 @@ function renderSchedule(schedule, speakers) {
   draw();
 }
 
-function renderFooter() {
-  $("#footer").textContent = "© 2026 DevFest Your City · Built live with Antigravity CLI";
+function renderFooter(event) {
+  $("#footer").textContent = `© ${event.year} ${event.name} ${event.city} · Built live with Antigravity CLI`;
 }
 
 function initTheme() {
@@ -140,7 +142,7 @@ async function main() {
   renderCountdown(event);
   renderSpeakers(speakers);
   renderSchedule(schedule, speakers);
-  renderFooter();
+  renderFooter(event);
 }
 
 main();
