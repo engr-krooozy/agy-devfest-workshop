@@ -33,8 +33,8 @@ flowchart LR
     A[demo-start] --> B[step-14<br/>docstring + test]
     B --> C[step-25<br/>/standup skill]
     C --> D[step-28<br/>retry + backoff]
-    D --> E[step-29<br/>fix bug]
-    E --> F[step-29<br/>consolidate HTTP]
+    D --> E[step-29a<br/>fix bug]
+    E --> F[step-29b<br/>consolidate HTTP]
 ```
 
 ## Follow along in 3 ways
