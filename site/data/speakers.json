@@ -1,6 +1,137 @@
 [
-  { "id": "amara", "name": "Amara Okafor", "role": "Cloud Engineer", "topic": "Shipping agents to production", "color": "#4285f4" },
-  { "id": "daniel", "name": "Daniel Mensah", "role": "Android Developer", "topic": "Jetpack Compose in the real world", "color": "#ea4335" },
-  { "id": "sofia", "name": "Sofia Alvarez", "role": "Data Engineer", "topic": "BigQuery tricks nobody told you", "color": "#fbbc04" },
-  { "id": "kenji", "name": "Kenji Watanabe", "role": "Web Developer", "topic": "Fast sites with less JavaScript", "color": "#34a853" }
+  {
+    "id": "amara",
+    "name": "Amara Okafor",
+    "role": "Cloud Architect",
+    "company": "Google Cloud",
+    "topic": "Shipping agents to production",
+    "color": "#4285f4",
+    "bio": "Amara is a Cloud Architect at Google Cloud specializing in scalable multi-agent systems, Kubernetes, and enterprise AI orchestration.",
+    "social": {
+      "twitter": "https://x.com/amara_cloud",
+      "github": "https://github.com/amara-okafor",
+      "linkedin": "https://linkedin.com/in/amara-okafor"
+    },
+    "tags": ["Cloud", "AI", "Architecture"]
+  },
+  {
+    "id": "daniel",
+    "name": "Daniel Mensah",
+    "role": "Principal Android Engineer",
+    "company": "Flutterwave",
+    "topic": "Jetpack Compose in the real world",
+    "color": "#ea4335",
+    "bio": "Daniel leads mobile architecture at Flutterwave, crafting reactive UI architectures with modern Kotlin and Jetpack Compose.",
+    "social": {
+      "twitter": "https://x.com/daniel_droid",
+      "github": "https://github.com/daniel-mensah",
+      "linkedin": "https://linkedin.com/in/daniel-mensah"
+    },
+    "tags": ["Android", "Mobile", "Kotlin"]
+  },
+  {
+    "id": "sofia",
+    "name": "Sofia Alvarez",
+    "role": "Lead Data Infrastructure Engineer",
+    "company": "Spotify",
+    "topic": "BigQuery tricks nobody told you",
+    "color": "#fbbc04",
+    "bio": "Sofia leads data infrastructure teams at Spotify, optimizing petabyte-scale analytical pipelines and BigQuery storage.",
+    "social": {
+      "twitter": "https://x.com/sofia_data",
+      "github": "https://github.com/sofia-alvarez",
+      "linkedin": "https://linkedin.com/in/sofia-alvarez"
+    },
+    "tags": ["Data", "BigQuery", "Analytics"]
+  },
+  {
+    "id": "kenji",
+    "name": "Kenji Watanabe",
+    "role": "Senior Web Platform Engineer",
+    "company": "Chrome Team",
+    "topic": "Fast sites with less JavaScript",
+    "color": "#34a853",
+    "bio": "Kenji works on Chromium performance and Core Web Vitals, advocating for high-performance standards-based web architectures.",
+    "social": {
+      "twitter": "https://x.com/kenji_web",
+      "github": "https://github.com/kenji-watanabe",
+      "linkedin": "https://linkedin.com/in/kenji-watanabe"
+    },
+    "tags": ["Web", "Performance", "HTML/CSS"]
+  },
+  {
+    "id": "chidi",
+    "name": "Chidi Eze",
+    "role": "Staff Machine Learning Engineer",
+    "company": "DeepMind",
+    "topic": "Evaluating AI agents before they reach users",
+    "color": "#a142f4",
+    "bio": "Chidi is a Staff ML Engineer at DeepMind focused on evaluation harnesses and synthetic stress-testing for reasoning agents.",
+    "social": {
+      "twitter": "https://x.com/chidi_ml",
+      "github": "https://github.com/chidi-eze",
+      "linkedin": "https://linkedin.com/in/chidi-eze"
+    },
+    "tags": ["Machine Learning", "AI", "Evaluation"]
+  },
+  {
+    "id": "zainab",
+    "name": "Zainab Abubakar",
+    "role": "Senior Security Architect",
+    "company": "Microsoft",
+    "topic": "Zero Trust in the Age of Autonomous AI",
+    "color": "#ff6d00",
+    "bio": "Zainab is a Senior Security Architect at Microsoft specializing in cloud identity, agent sandboxing, and enterprise Zero Trust.",
+    "social": {
+      "twitter": "https://x.com/zainab_sec",
+      "github": "https://github.com/zainab-bello",
+      "linkedin": "https://linkedin.com/in/zainab-bello"
+    },
+    "tags": ["Security", "Zero Trust", "Cloud"]
+  },
+  {
+    "id": "kwame",
+    "name": "Kwame Mensah",
+    "role": "Staff Flutter Engineer",
+    "company": "Paystack",
+    "topic": "Masterclass: Multi-Platform Design Systems with Flutter",
+    "color": "#00b0ff",
+    "bio": "Kwame builds cross-platform fintech design systems at Paystack, ensuring pixel-perfect rendering across mobile, desktop, and web.",
+    "social": {
+      "twitter": "https://x.com/kwame_flutter",
+      "github": "https://github.com/kwame-asante",
+      "linkedin": "https://linkedin.com/in/kwame-asante"
+    },
+    "tags": ["Flutter", "Mobile", "Dart"]
+  },
+  {
+    "id": "aisha",
+    "name": "Aisha Bello",
+    "role": "Principal DevOps Engineer",
+    "company": "GitLab",
+    "topic": "GitOps and Next-Gen CI/CD at Scale",
+    "color": "#e91e63",
+    "bio": "Aisha designs cloud-native deployment automation and progressive delivery pipelines at GitLab.",
+    "social": {
+      "twitter": "https://x.com/aisha_devops",
+      "github": "https://github.com/aisha-almansoor",
+      "linkedin": "https://linkedin.com/in/aisha-almansoor"
+    },
+    "tags": ["DevOps", "GitOps", "Kubernetes"]
+  },
+  {
+    "id": "marcus",
+    "name": "Marcus Adebayo",
+    "role": "Staff AI Researcher",
+    "company": "Anthropic",
+    "topic": "Frontiers of Contextual Reasoning and Tool Use",
+    "color": "#009688",
+    "bio": "Marcus is an AI researcher exploring long-horizon reasoning, structured agentic tool execution, and alignment challenges.",
+    "social": {
+      "twitter": "https://x.com/marcus_ai",
+      "github": "https://github.com/marcus-thorne",
+      "linkedin": "https://linkedin.com/in/marcus-thorne"
+    },
+    "tags": ["AI Research", "Reasoning", "LLMs"]
+  }
 ]

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DevFest Your City 2026</title>
-  <meta name="description" content="DevFest Your City 2026: talks and workshops with your local developer community.">
+  <title>DevFest</title>
+  <meta name="description" id="meta-description" content="DevFest: talks and workshops with your local developer community.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,9 +13,18 @@
       <span class="dots"><i></i><i></i><i></i><i></i></span>
       <strong id="brand-name">DevFest</strong>
     </div>
-    <nav>
+    <nav id="main-nav">
+      <a href="#stats">Overview</a>
+      <a href="#tracks">Tracks</a>
       <a href="#speakers">Speakers</a>
       <a href="#schedule">Schedule</a>
+      <a href="#venue">Venue</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#registration">Register</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#faq">FAQ</a>
+      <a href="#coc">Conduct</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
     </nav>
   </header>
 
@@ -24,32 +33,325 @@
     <h1 id="hero-title"></h1>
     <p class="tagline" id="hero-tagline"></p>
     <div class="countdown" id="countdown"></div>
+    <div class="hero-actions">
+      <a href="#registration" class="btn btn-primary">RSVP &amp; Claim Badge</a>
+      <a href="#schedule" class="btn btn-outline">Explore Agenda</a>
+    </div>
   </section>
 
   <main>
+    <section id="stats">
+      <div class="stats-grid" id="stats-container"></div>
+    </section>
+
+    <section id="tracks">
+      <div class="section-header">
+        <div>
+          <h2>Conference Tracks</h2>
+          <span class="section-subtitle">Deep dive into technical tracks curated by industry practitioners</span>
+        </div>
+      </div>
+      <div class="tracks-grid">
+        <div class="track-card">
+          <div class="track-icon" style="background: rgba(66, 133, 244, 0.15); color: #4285f4;">☁️</div>
+          <h3>Cloud &amp; AI</h3>
+          <p>Production agents, cloud-native deployments, LLM evaluation, and enterprise infrastructure.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon" style="background: rgba(234, 67, 53, 0.15); color: #ea4335;">📱</div>
+          <h3>Mobile &amp; Flutter</h3>
+          <p>Jetpack Compose, reactive UI patterns, Flutter design systems, and cross-platform apps.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon" style="background: rgba(251, 188, 4, 0.15); color: #fbbc04;">📊</div>
+          <h3>Data &amp; Security</h3>
+          <p>Petabyte-scale BigQuery pipelines, real-time analytics, Zero Trust, and agent sandboxing.</p>
+        </div>
+        <div class="track-card">
+          <div class="track-icon" style="background: rgba(52, 168, 83, 0.15); color: #34a853;">🌐</div>
+          <h3>Modern Web &amp; DevOps</h3>
+          <p>Core Web Vitals, ultra-fast architectures, GitOps delivery pipelines, and open ecosystems.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="speakers">
-      <h2>Speakers</h2>
+      <div class="section-header">
+        <div>
+          <h2>Featured Speakers</h2>
+          <span class="filter-hint" id="speaker-hint">Click a speaker for full bio &amp; sessions, or filter their talks below</span>
+        </div>
+      </div>
       <div class="grid" id="speaker-grid"></div>
     </section>
 
     <section id="schedule">
-      <h2>Schedule</h2>
-      <div class="tabs" id="day-tabs"></div>
+      <div class="section-header">
+        <div>
+          <h2>Schedule &amp; Personalized Agenda</h2>
+          <span class="section-subtitle">Filter by day, room, track, difficulty, speaker, or search query</span>
+        </div>
+        <div class="agenda-actions">
+          <button type="button" class="btn btn-sm btn-outline" id="my-agenda-btn" aria-pressed="false">⭐ My Agenda (<span id="saved-count">0</span>)</button>
+          <button type="button" class="btn btn-sm btn-outline" id="export-ics-btn" title="Download RFC 5545 iCalendar file">📅 Export .ics</button>
+        </div>
+      </div>
+
+      <div class="schedule-toolbar">
+        <div class="tabs" id="day-tabs" role="tablist" aria-label="Conference Days"></div>
+        <div class="room-filters" id="room-filters" aria-label="Filter by room"></div>
+      </div>
+
+      <div class="schedule-filters-row">
+        <input type="search" id="schedule-search" class="search-input" placeholder="Search sessions, topics, or speakers..." aria-label="Search schedule sessions">
+        <select id="track-filter" class="filter-select" aria-label="Filter by track">
+          <option value="All tracks">All tracks</option>
+        </select>
+        <select id="level-filter" class="filter-select" aria-label="Filter by difficulty level">
+          <option value="All levels">All levels</option>
+        </select>
+        <select id="speaker-filter" class="filter-select" aria-label="Filter by speaker">
+          <option value="All speakers">All speakers</option>
+        </select>
+      </div>
+
+      <div id="agenda-conflict-banner" class="conflict-banner" style="display: none;" role="alert"></div>
       <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <section id="venue">
+      <div class="section-header">
+        <div>
+          <h2>Venue &amp; Travel Guide</h2>
+          <span class="section-subtitle">Directions, transit options, and accessibility information</span>
+        </div>
+      </div>
+      <div class="venue-card" id="venue-container"></div>
+    </section>
+
+    <section id="tickets">
+      <div class="section-header">
+        <div>
+          <h2>Tickets &amp; Passes</h2>
+          <span class="section-subtitle">DevFest is free and community-driven. Reserve your pass in advance.</span>
+        </div>
+      </div>
+      <div class="tickets-grid">
+        <div class="ticket-card">
+          <div class="ticket-badge">FREE</div>
+          <h3>Student Pass</h3>
+          <p class="ticket-desc">For high school, undergraduate, and postgraduate students with valid student ID.</p>
+          <ul class="ticket-perks">
+            <li>Access to all keynote &amp; general sessions</li>
+            <li>Student networking circle &amp; career clinic</li>
+            <li>DevFest badge &amp; swag kit</li>
+            <li>Lunch &amp; refreshments both days</li>
+          </ul>
+          <a href="#registration" class="btn btn-sm btn-outline select-ticket-btn" data-ticket="Student Pass">Claim Student Pass</a>
+        </div>
+        <div class="ticket-card ticket-featured">
+          <div class="ticket-badge">POPULAR · FREE</div>
+          <h3>General Developer</h3>
+          <p class="ticket-desc">For software engineers, product designers, data practitioners, and tech professionals.</p>
+          <ul class="ticket-perks">
+            <li>Full 2-day conference &amp; workshop access</li>
+            <li>Hands-on codelabs &amp; masterclasses</li>
+            <li>DevFest conference badge &amp; swag bag</li>
+            <li>Community networking lunch &amp; expo</li>
+          </ul>
+          <a href="#registration" class="btn btn-sm btn-primary select-ticket-btn" data-ticket="General Developer">Register General Pass</a>
+        </div>
+        <div class="ticket-card">
+          <div class="ticket-badge">COMMUNITY</div>
+          <h3>Community Supporter</h3>
+          <p class="ticket-desc">For mentors, community organizers, and supporters championing local tech growth.</p>
+          <ul class="ticket-perks">
+            <li>All General Developer benefits</li>
+            <li>Priority keynote &amp; workshop seating</li>
+            <li>Special community supporter badge lanyard</li>
+            <li>Speaker &amp; community organizer mixer</li>
+          </ul>
+          <a href="#registration" class="btn btn-sm btn-outline select-ticket-btn" data-ticket="Community Supporter">Claim Supporter Pass</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="registration">
+      <div class="section-header">
+        <div>
+          <h2>RSVP Registration &amp; Badge Studio</h2>
+          <span class="section-subtitle">Register your pass and customize your printable/downloadable attendee badge</span>
+        </div>
+      </div>
+      <div class="registration-layout">
+        <form id="rsvp-form" class="rsvp-form" novalidate>
+          <div class="form-group">
+            <label for="rsvp-name">Full Name <span class="required">*</span></label>
+            <input type="text" id="rsvp-name" name="fullname" placeholder="e.g. Ada Lovelace" required autocomplete="name">
+            <span class="field-error" id="name-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-email">Email Address <span class="required">*</span></label>
+            <input type="email" id="rsvp-email" name="email" placeholder="e.g. ada@example.com" required autocomplete="email">
+            <span class="field-error" id="email-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rsvp-role">Role / Title <span class="required">*</span></label>
+              <input type="text" id="rsvp-role" name="role" placeholder="e.g. Staff Engineer" required>
+              <span class="field-error" id="role-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="rsvp-company">Company / Organization <span class="required">*</span></label>
+              <input type="text" id="rsvp-company" name="company" placeholder="e.g. Open Source Community" required>
+              <span class="field-error" id="company-error" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-ticket">Ticket Type <span class="required">*</span></label>
+            <select id="rsvp-ticket" name="ticketType" required>
+              <option value="General Developer">General Developer (Free)</option>
+              <option value="Student Pass">Student Pass (Free)</option>
+              <option value="Community Supporter">Community Supporter (Free)</option>
+            </select>
+            <span class="field-error" id="ticket-error" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" id="rsvp-submit" class="btn btn-primary btn-block">Confirm RSVP &amp; Generate Badge</button>
+          <div id="rsvp-success" class="form-success" style="display:none;" role="status"></div>
+        </form>
+
+        <div id="attendee-badge" class="attendee-badge-container">
+          <div class="badge-preview-wrapper" id="badge-preview-wrapper">
+            <div class="badge-card" id="badge-card">
+              <div class="badge-header">
+                <span class="badge-brand" id="badge-event-brand">DevFest</span>
+                <span class="badge-type-pill" id="badge-pill">ATTENDEE</span>
+              </div>
+              <div class="badge-body">
+                <div class="badge-avatar" id="badge-avatar">DF</div>
+                <h3 class="badge-name" id="badge-name">Your Name Here</h3>
+                <p class="badge-title" id="badge-title">Role · Organization</p>
+                <div class="badge-id" id="badge-id">TICKET #DF26-0000</div>
+              </div>
+              <div class="badge-footer">
+                <span id="badge-event-meta">Community Hub</span>
+                <span class="badge-barcode">||| |||| ||| ||||</span>
+              </div>
+            </div>
+          </div>
+          <div class="badge-actions">
+            <button type="button" class="btn btn-sm btn-primary" id="download-badge-btn">Download Badge (PNG)</button>
+            <button type="button" class="btn btn-sm btn-outline" id="print-badge-btn">Print Badge</button>
+          </div>
+          <canvas id="badge-canvas" width="800" height="500" style="display:none;"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors">
+      <div class="section-header">
+        <div>
+          <h2>Sponsors &amp; Community Partners</h2>
+          <span class="section-subtitle">Supported by global technology leaders and local developer ecosystems</span>
+        </div>
+      </div>
+      <div class="sponsors-container">
+        <div class="sponsor-tier">
+          <h3 class="tier-label">Platinum &amp; Headline Partners</h3>
+          <div class="sponsor-logos headline">
+            <a href="https://developers.google.com" target="_blank" rel="noopener noreferrer" class="sponsor-badge google">Google Developers</a>
+            <a href="https://cloud.google.com" target="_blank" rel="noopener noreferrer" class="sponsor-badge google">Google Cloud</a>
+          </div>
+        </div>
+        <div class="sponsor-tier">
+          <h3 class="tier-label">Gold Ecosystem Sponsors</h3>
+          <div class="sponsor-logos">
+            <a href="https://flutterwave.com" target="_blank" rel="noopener noreferrer" class="sponsor-badge">Flutterwave</a>
+            <a href="https://paystack.com" target="_blank" rel="noopener noreferrer" class="sponsor-badge">Paystack</a>
+            <a href="https://about.gitlab.com" target="_blank" rel="noopener noreferrer" class="sponsor-badge">GitLab</a>
+          </div>
+        </div>
+        <div class="sponsor-tier">
+          <h3 class="tier-label">Community Partners</h3>
+          <div class="sponsor-logos">
+            <span class="sponsor-badge">Google Developer Groups</span>
+            <span class="sponsor-badge">Women Techmakers</span>
+            <span class="sponsor-badge">Google Developer Student Clubs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-header">
+        <div>
+          <h2>Frequently Asked Questions</h2>
+          <span class="section-subtitle">Search or expand common questions about attendance, workshops, and logistics</span>
+        </div>
+        <input type="search" id="faq-search" class="search-input faq-search-input" placeholder="Search FAQs..." aria-label="Search Frequently Asked Questions">
+      </div>
+      <div class="faq-accordion" id="faq-list">
+        <details class="faq-item" open>
+          <summary>Is DevFest free to attend?</summary>
+          <p>Yes! DevFest is a 100% free, community-organized developer conference supported by our sponsors and volunteer community. Advance registration is required.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to register in advance?</summary>
+          <p>Yes. Venue capacity is capped at 500 attendees. Completing the RSVP form reserves your pass and generates your conference badge immediately.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What should I bring to hands-on workshops?</summary>
+          <p>Bring a charged laptop, charger, and a valid photo or student ID for registration check-in. High-speed Wi-Fi and power strips are provided in the Workshop room.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I save my personal schedule and export it to my calendar?</summary>
+          <p>Click the star (☆) button on any session in the Schedule section to save it to "My Agenda", then click "Export .ics" to download a standard RFC 5545 calendar file for Google Calendar, Apple Calendar, or Outlook.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will talks and slides be recorded?</summary>
+          <p>All Main Hall keynotes and technical talks are recorded and published with speaker slide decks after the conference.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="coc">
+      <div class="section-header">
+        <div>
+          <h2>Code of Conduct</h2>
+          <span class="section-subtitle">Our commitment to a safe, welcoming, and harassment-free conference environment</span>
+        </div>
+      </div>
+      <div class="coc-card">
+        <p>DevFest is dedicated to providing a harassment-free and inclusive conference experience for everyone, regardless of gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, or religion.</p>
+        <p>We do not tolerate harassment of conference participants in any form. All attendees, speakers, sponsors, and volunteers at DevFest are required to agree with and uphold this Code of Conduct throughout all sessions, workshops, and community networking events.</p>
+      </div>
     </section>
   </main>
 
   <footer id="footer"></footer>
 
+  <div id="modal-container" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title" style="display: none;">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-card" id="modal-card" tabindex="-1">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
   <script>
     /* Dev-only live reload: the page refreshes itself when any site file changes. */
     (function () {
+      if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") return;
       var seen = null;
       setInterval(function () {
         fetch("/__version", { cache: "no-store" })
-          .then(function (r) { return r.text(); })
-          .then(function (v) { if (seen && v !== seen) location.reload(); seen = v; })
+          .then(function (r) { return r.ok ? r.text() : null; })
+          .then(function (v) { if (v && seen && v !== seen) location.reload(); if (v) seen = v; })
           .catch(function () {});
       }, 700);
     })();
