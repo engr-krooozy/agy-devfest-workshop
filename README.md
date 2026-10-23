@@ -28,11 +28,20 @@ file, [`site/data/event.json`](site/data/event.json). Change `"city"` to yours a
 
 ## Get running in 60 seconds
 
+**macOS / Linux:**
 ```bash
 git clone https://github.com/engr-krooozy/agy-devfest-workshop.git
 cd agy-devfest-workshop
 make preflight          # every line should say OK
 make serve              # then open http://localhost:8000
+```
+
+**Windows (PowerShell or Command Prompt):**
+```powershell
+git clone https://github.com/engr-krooozy/agy-devfest-workshop.git
+cd agy-devfest-workshop
+.\run.bat preflight     # check Python, git, and tests
+.\run.bat serve         # or directly: python serve.py (or py serve.py)
 ```
 
 Now open three windows side by side:
@@ -41,7 +50,7 @@ Now open three windows side by side:
 |---|---|
 | **Terminal 1** | `agy`, where the prompts go |
 | **Browser** | http://localhost:8000, the site, reloading itself |
-| **Terminal 2** (optional) | `make follow`, the files the agent is touching, live |
+| **Terminal 2** (optional) | `make follow` (or `.\run.bat follow` on Windows), the files the agent is touching, live |
 
 ## Make it yours (do this first)
 
@@ -110,15 +119,16 @@ scripts/              follow, step, reset, preflight, add-speaker
 
 ## Commands
 
-| Command | What it does |
-|---|---|
-| `make serve` | the site with live reload on port 8000 |
-| `make test` | tests that must pass |
-| `make bugs` | the bug report, failing on purpose |
-| `make follow` | live list of files the agent is changing |
-| `make steps` | list every workshop step |
-| `make reset` | back to the clean starting point |
-| `make preflight` | check everything is ready |
+| macOS / Linux (`make`) | Windows (`run.bat` or direct Python) | What it does |
+|---|---|---|
+| `make serve` | `.\run.bat serve` *(or `python serve.py`)* | the site with live reload on port 8000 |
+| `make open` | `.\run.bat open` *(or `start http://localhost:8000`)* | open the site in your browser |
+| `make test` | `.\run.bat test` *(or `python -m unittest discover -s tests -v`)* | tests that must pass |
+| `make bugs` | `.\run.bat bugs` *(or `python -m unittest discover -s bugs -v`)* | the bug report, failing on purpose |
+| `make follow` | `.\run.bat follow` | live list of files the agent is changing |
+| `make steps` | `.\run.bat steps` | list every workshop step |
+| `make reset` | `.\run.bat reset` *(or `git reset --hard demo-start`)* | back to the clean starting point |
+| `make preflight` | `.\run.bat preflight` | check everything is ready |
 
 ---
 
