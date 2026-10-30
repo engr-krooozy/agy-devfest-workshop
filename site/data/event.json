@@ -3,29 +3,7 @@
   "city": "Your City",
   "year": 2026,
   "date": "2026-11-14",
-  "endDate": "2026-11-15",
-  "timezone": "UTC",
   "venue": "Community Hub",
-  "tagline": "A 2-day celebration of technology, AI agents, mobile, cloud, and open source with your local community.",
-  "description": "DevFest Your City 2026 brings together developers, designers, researchers, and tech enthusiasts for two packed days of keynotes, hands-on workshops, technical deep-dives, and networking across four specialized tracks.",
-  "accent": "#4285f4",
-  "secondaryAccent": "#34a853",
-  "venueDetails": {
-    "address": "Community Hub, 100 Innovation Way, Your City",
-    "transit": "Accessible via city bus routes 3 & 7 and local ride-hail services. Free parking on site.",
-    "accessibility": "Wheelchair accessible entrances, ramps, gender-neutral restrooms, and reserved seating available in all halls.",
-    "mapUrl": "https://maps.google.com/?q=Community+Hub"
-  },
-  "stats": [
-    { "label": "Attendees", "value": "500+" },
-    { "label": "Days", "value": "2" },
-    { "label": "Sessions", "value": "16" },
-    { "label": "Tracks", "value": "4" }
-  ],
-  "social": {
-    "twitter": "https://x.com/DevFestYourCity",
-    "github": "https://github.com/devfest-your-city",
-    "linkedin": "https://linkedin.com/company/devfest-your-city",
-    "website": "https://devfest.community"
-  }
+  "tagline": "A day of talks and workshops with your local Google developer community.",
+  "accent": "#4285f4"
 }
